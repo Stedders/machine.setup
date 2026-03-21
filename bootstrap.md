@@ -1,0 +1,77 @@
+# Bootstrap
+
+Minimal manual steps to go from a fresh OS install to having Claude Code running with GitHub access. After this, the LLM takes over.
+
+## 1. Get credentials
+
+- [ ] Retrieve your password manager master password (e.g., from another device)
+- [ ] Log in to your email
+- [ ] Install your password manager's browser extension and log in
+
+## 2. Update system
+
+<!-- OS-specific -->
+
+**Fedora:**
+```bash
+sudo dnf upgrade --refresh
+```
+
+## 3. Install Homebrew prerequisites
+
+<!-- OS-specific -->
+
+Homebrew requires git and build tools to install.
+
+**Fedora:**
+```bash
+sudo dnf install git gcc make
+```
+
+## 4. Install Homebrew
+
+Cross-platform package manager — keeps dev tools consistent across distros and macOS.
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Follow the post-install instructions printed to the terminal to add `brew` to your PATH.
+
+## 5. Install Claude Code
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+- [ ] Launch `claude` and authenticate via browser
+
+## 6. Get GitHub access
+
+```bash
+brew install gh
+```
+
+Configure git identity:
+```bash
+git config --global user.name "YOUR NAME"
+git config --global user.email "YOUR EMAIL"
+```
+
+Generate SSH key:
+```bash
+ssh-keygen -t ed25519 -C "YOUR EMAIL"
+cat ~/.ssh/id_ed25519.pub
+```
+
+- [ ] Add the public key to [GitHub → Settings → SSH keys](https://github.com/settings/keys)
+
+Authenticate gh CLI:
+```bash
+gh auth login
+```
+Select: GitHub.com → SSH → authenticate via browser.
+
+## 7. Handoff
+
+Bootstrap complete. Hand off to Claude Code for semi-automated and automated setup.
