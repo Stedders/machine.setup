@@ -12,9 +12,19 @@ Minimal manual steps to go from a fresh OS install to having Claude Code running
 
 <!-- OS-specific -->
 
-**Fedora:**
+**Fedora/DNF:**
 ```bash
 sudo dnf upgrade --refresh
+```
+
+**Ubuntu/Debian/APT:**
+```bash
+sudo apt update && sudo apt upgrade
+```
+
+**macOS:**
+```bash
+softwareupdate --install --all
 ```
 
 ## 3. Install Homebrew prerequisites
@@ -23,9 +33,19 @@ sudo dnf upgrade --refresh
 
 Homebrew requires git and build tools to install.
 
-**Fedora:**
+**Fedora/DNF:**
 ```bash
 sudo dnf install git gcc make
+```
+
+**Ubuntu/Debian/APT:**
+```bash
+sudo apt install git build-essential
+```
+
+**macOS:**
+```bash
+xcode-select --install
 ```
 
 ## 4. Install Homebrew
