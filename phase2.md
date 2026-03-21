@@ -4,6 +4,12 @@ After bootstrap, the system has Claude Code and GitHub access. Phase 2 stabilize
 
 Claude Code should follow these steps on handoff, detecting the specific system and adapting accordingly.
 
+### General rules
+
+- **Scripts over inline commands:** When steps require sudo or multi-part commands, create numbered executable scripts in `scripts/` (e.g., `scripts/01-enable-rpmfusion.sh`). This avoids copy-paste errors with line breaks and spaces, and gives the user a clear run order.
+- **Detection first:** Always detect the current system state before prescribing fixes. Don't assume OS, GPU vendor, display manager, or desktop environment.
+- **Explain then execute:** Each script should include a comment explaining what it does. The user reviews and runs them — Claude Code prepares and verifies.
+
 ---
 
 ## A. Detect and install GPU drivers
