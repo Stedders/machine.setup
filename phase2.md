@@ -6,7 +6,7 @@ Claude Code should follow these steps on handoff, detecting the specific system 
 
 ### General rules
 
-- **Scripts over inline commands:** When steps require sudo or multi-part commands, create numbered executable scripts in `scripts/` (e.g., `scripts/01-enable-rpmfusion.sh`). This avoids copy-paste errors with line breaks and spaces, and gives the user a clear run order.
+- **Scripts over inline commands:** When steps require sudo or multi-part commands, create numbered executable scripts in `scripts/<system>/` (e.g., `scripts/fedora-43-nvidia/01-enable-rpmfusion.sh`). This avoids copy-paste errors with line breaks and spaces, gives the user a clear run order, and preserves a record of what was done per system. Commit scripts to the repo — nothing sensitive should be in them.
 - **Detection first:** Always detect the current system state before prescribing fixes. Don't assume OS, GPU vendor, display manager, or desktop environment.
 - **Explain then execute:** Each script should include a comment explaining what it does. The user reviews and runs them — Claude Code prepares and verifies.
 
