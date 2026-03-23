@@ -72,15 +72,17 @@ curl -fsSL https://claude.ai/install.sh | bash
 brew install gh
 ```
 
-Configure git identity:
+Configure git identity (use GitHub noreply email for privacy):
 ```bash
-git config --global user.name "YOUR NAME"
-git config --global user.email "YOUR EMAIL"
+GITHUB_USER=$(gh api user --jq '.login')
+GITHUB_ID=$(gh api user --jq '.id')
+git config --global user.name "$GITHUB_USER"
+git config --global user.email "${GITHUB_ID}+${GITHUB_USER}@users.noreply.github.com"
 ```
 
 Generate SSH key:
 ```bash
-ssh-keygen -t ed25519 -C "YOUR EMAIL"
+ssh-keygen -t ed25519 -C "$(git config --global user.email)"
 cat ~/.ssh/id_ed25519.pub
 ```
 
