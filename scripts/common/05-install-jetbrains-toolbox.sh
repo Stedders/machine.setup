@@ -30,9 +30,9 @@ echo "Extracting..."
 tar -xzf "$TARBALL" -C "$TMPDIR"
 
 echo "Launching JetBrains Toolbox (self-installs to $INSTALL_DIR)..."
-"$TMPDIR"/jetbrains-toolbox-*/bin/jetbrains-toolbox &
+"$TMPDIR"/jetbrains-toolbox-*/bin/jetbrains-toolbox
 
 rm -rf "$TMPDIR"
 
 echo ""
-echo "JetBrains Toolbox is installing. Use it to install your IDEs."
+echo "JetBrains Toolbox installed. Use it to install your IDEs."
