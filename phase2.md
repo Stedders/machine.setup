@@ -12,7 +12,31 @@ Claude Code should follow these steps on handoff, detecting the specific system 
 
 ---
 
-## A. Detect and install GPU drivers
+## A. Remove unnecessary pre-installed applications
+
+**Goal:** Strip bloat from the default install to keep the system lean. Only Firefox and a terminal emulator are needed as GUI apps.
+
+**Detection:**
+- Identify distro: `cat /etc/os-release`
+- List installed packages and identify non-essential GUI apps
+
+**Hints:**
+- **Fedora KDE** ships with games, PIM suite (kmail, kontact, korganizer), LibreOffice, MariaDB, accessibility tools, and many KDE utilities.
+- Do NOT remove `konsole` — `plasma-drkonqi` (crash handler) depends on it.
+- Do NOT remove `keditbookmarks` — `konsole` depends on it.
+- Always dry-run with `dnf remove --assumeno` before confirming.
+
+**Scripts:**
+- Fedora 43: `scripts/fedora-43/01-remove-bloat.sh`
+
+**Success criteria:**
+- [ ] Bloat packages removed
+- [ ] `dnf autoremove` run to clean unused dependencies
+- [ ] Desktop still functions (kwin, plasma-desktop, sddm, dolphin intact)
+
+---
+
+## B. Detect and install GPU drivers
 
 **Goal:** Ensure hardware GPU acceleration is working.
 
@@ -36,7 +60,7 @@ Claude Code should follow these steps on handoff, detecting the specific system 
 
 ---
 
-## B. Check and fix system errors
+## C. Check and fix system errors
 
 **Goal:** Review system logs and resolve errors that indicate broken foundations.
 
@@ -58,7 +82,7 @@ Claude Code should follow these steps on handoff, detecting the specific system 
 
 ---
 
-## C. Post-install common fixes checklist
+## D. Post-install common fixes checklist
 
 **Goal:** Check for and fix common post-install usability issues.
 
@@ -102,7 +126,7 @@ Claude Code should follow these steps on handoff, detecting the specific system 
 
 ---
 
-## D. Verify system stability
+## E. Verify system stability
 
 **Goal:** Confirm the system is stable enough for dotfiles deployment.
 
@@ -115,7 +139,7 @@ Claude Code should follow these steps on handoff, detecting the specific system 
 
 ---
 
-## E. Document and commit
+## F. Document and commit
 
 **Goal:** Record what was done, update this repo.
 
