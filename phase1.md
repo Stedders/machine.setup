@@ -75,8 +75,9 @@ brew install gh
 Configure git identity (use GitHub noreply email for privacy):
 ```bash
 GITHUB_USER=$(gh api user --jq '.login')
+GITHUB_NAME=$(gh api user --jq '.name')
 GITHUB_ID=$(gh api user --jq '.id')
-git config --global user.name "$GITHUB_USER"
+git config --global user.name "${GITHUB_NAME:-$GITHUB_USER}"
 git config --global user.email "${GITHUB_ID}+${GITHUB_USER}@users.noreply.github.com"
 ```
 
