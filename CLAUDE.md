@@ -7,14 +7,17 @@ Agnostic machine provisioning playbook. Guides a system from bare OS to a stable
 - `phase1.md` — Phase 1: manual steps from fresh OS to Claude Code + GitHub access
 - `phase2.md` — Phase 2: system stabilization playbook (GPU drivers, system errors, common fixes)
 - `phase3.md` — Phase 3: desktop environment configuration (theme, icons, fonts, dark/light switching)
+- `phase4.md` — Phase 4: dev stack (languages, runtimes, cloud CLIs, containers)
 - `scripts/<system>/` — Numbered executable scripts per system (e.g., `scripts/fedora-43-nvidia/`, `scripts/kde-plasma6/`)
+- `scripts/common/` — Cross-platform installer scripts (nvm, rustup, SDKMAN, gcloud)
 
 ## Phases
 
 1. **Bootstrap** (manual) — User follows `phase1.md` to get credentials, update OS, install Homebrew, Claude Code, and GitHub access
 2. **Stabilization** (semi-automated) — Claude Code follows `phase2.md` to detect and fix system issues (GPU, errors, usability)
 3. **Desktop environment** (semi-automated) — Claude Code follows `phase3.md` to configure DE look & feel
-4. **Dotfiles** (future) — Deploy personal config from the separate dotfiles repo
+4. **Dev stack** (semi-automated) — Claude Code follows `phase4.md` to install languages, runtimes, cloud CLIs, and containers
+5. **Dotfiles** — Deploy personal config from the separate dotfiles repo
 
 ## Key principles
 
