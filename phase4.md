@@ -13,22 +13,24 @@ Claude Code should follow these steps on handoff, detecting the specific system 
 
 ## A. System build tools
 
-**Goal:** Install C/C++ toolchain packages not covered by Homebrew.
+**Goal:** Install C/C++ toolchain and .NET SDK via system packages (not Homebrew).
 
 **Detection:**
 - Check for compiler: `gcc --version`, `g++ --version`
 - Check for build tools: `cmake --version`, `make --version`
+- Check for .NET: `dotnet --version`
 
 **Hints:**
-- **Fedora:** `gcc` and `make` are usually pre-installed. `gcc-c++` and `cmake` likely need installing.
-- **Ubuntu/Debian:** `build-essential` covers gcc, g++, make. `cmake` is separate.
-- **macOS:** Xcode Command Line Tools (installed in Phase 1) covers everything.
+- **Fedora:** `gcc` and `make` are usually pre-installed. `gcc-c++`, `cmake`, and `dotnet-sdk-10.0` need installing. Homebrew dotnet is broken on Fedora 43 (executable stack restriction in kernel).
+- **Ubuntu/Debian:** `build-essential` covers gcc, g++, make. `cmake` is separate. .NET via Microsoft's apt repo or install script.
+- **macOS:** Xcode Command Line Tools (installed in Phase 1) covers C/C++. .NET via Homebrew works fine on macOS.
 
 **Scripts:**
 - Fedora 43: `scripts/fedora-43/02-dev-toolchain.sh`
 
 **Success criteria:**
 - [ ] `gcc`, `g++`, `cmake`, `make` all available
+- [ ] `dotnet --version` works
 
 ---
 
