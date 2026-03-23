@@ -16,7 +16,7 @@ COMPAT_LIBS=(
     glibc.i686
     libstdc++.i686
     libgcc.i686
-    zlib.i686
+    zlib-ng-compat.i686
     mesa-libGL.i686
     mesa-libGLU.i686
     mesa-vulkan-drivers.i686
