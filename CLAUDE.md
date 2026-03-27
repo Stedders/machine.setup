@@ -8,7 +8,7 @@ Agnostic machine provisioning playbook. Guides a system from bare OS to a stable
 - `phase2.md` — Phase 2: system stabilization playbook (GPU drivers, system errors, common fixes)
 - `phase3.md` — Phase 3: desktop environment configuration (theme, icons, fonts, dark/light switching)
 - `phase4.md` — Phase 4: dev stack (languages, runtimes, cloud CLIs, containers)
-- `scripts/<system>/` — Numbered executable scripts per system (e.g., `scripts/fedora-43-nvidia/`, `scripts/kde-plasma6/`)
+- `scripts/<system>/` — Numbered executable scripts per system (e.g., `scripts/fedora-43/`, `scripts/ubuntu-2404/`, `scripts/kde-plasma6/`)
 - `scripts/common/` — Cross-platform installer scripts (nvm, rustup, SDKMAN, gcloud)
 
 ## Phases

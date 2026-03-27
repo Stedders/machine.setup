@@ -25,9 +25,14 @@ Claude Code should follow these steps on handoff, detecting the specific system 
 - Do NOT remove `konsole` — `plasma-drkonqi` (crash handler) depends on it.
 - Do NOT remove `keditbookmarks` — `konsole` depends on it.
 - Always dry-run with `dnf remove --assumeno` before confirming.
+- **Ubuntu GNOME** ships with games, LibreOffice, Thunderbird, media apps, and snap packages.
+- Do NOT remove `gnome-terminal` — needed as fallback if Ghostty breaks.
+- Do NOT remove `gnome-shell`, `gnome-session`, `nautilus`, `gnome-control-center`.
+- Always dry-run with `apt --simulate remove` before confirming.
 
 **Scripts:**
 - Fedora 43: `scripts/fedora-43/01-remove-bloat.sh`
+- Ubuntu 24.04: `scripts/ubuntu-2404/01-remove-bloat.sh`
 
 **Success criteria:**
 - [ ] Bloat packages removed
